@@ -1,0 +1,456 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#070b16">
+    <meta name="description" content="MindQuest — Desafía tu mente con retos de lógica, memoria, rapidez y cultura general.">
+
+    <!-- ICONO INTEGRADO EN CÓDIGO -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23070b16'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23635bff'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='52'%3E%F0%9F%A7%A0%3C/text%3E%3C/svg%3E">
+
+    <title>MindQuest V1 | Desafía tu mente</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- FONDO ANIMADO -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🧠
+            </div>
+
+            <div class="logo-text">
+                <h1>Mind<span>Quest</span></h1>
+                <small>DESAFÍA TU MENTE</small>
+            </div>
+
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#retos">Retos</a>
+            <a href="#juego">Jugar</a>
+            <a href="#progreso">Progreso</a>
+        </nav>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    </header>
+
+    <!-- MENÚ MÓVIL -->
+    <div id="mobileMenu" class="mobile-menu">
+
+        <a href="#inicio" onclick="closeMenu()">Inicio</a>
+        <a href="#retos" onclick="closeMenu()">Retos</a>
+        <a href="#juego" onclick="closeMenu()">Jugar</a>
+        <a href="#progreso" onclick="closeMenu()">Progreso</a>
+
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section id="inicio" class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    ⚡ MINDQUEST V1
+                </div>
+
+                <h2>
+                    Pon a prueba
+                    <span>tu mente.</span>
+                </h2>
+
+                <p>
+                    Resuelve desafíos de lógica, memoria, cultura general
+                    y rapidez. Sube de nivel y supera tus propios récords.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="primary-btn" onclick="scrollToRetos()">
+                        🚀 Empezar desafío
+                    </button>
+
+                    <button class="secondary-btn" onclick="showHowToPlay()">
+                        ❓ ¿Cómo jugar?
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- ELEMENTO CENTRAL -->
+            <div class="brain-display">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="brain-circle">
+
+                    <div class="brain-glow"></div>
+
+                    <span class="brain">
+                        🧠
+                    </span>
+
+                </div>
+
+                <div class="floating-card card-one">
+                    🧩 Lógica
+                </div>
+
+                <div class="floating-card card-two">
+                    ⚡ Rapidez
+                </div>
+
+                <div class="floating-card card-three">
+                    🏆 Récord
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ESTADÍSTICAS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <strong id="score">0</strong>
+                <span>Puntos</span>
+            </div>
+
+            <div class="stat-card">
+                <strong id="streak">0</strong>
+                <span>Racha</span>
+            </div>
+
+            <div class="stat-card">
+                <strong id="solved">0</strong>
+                <span>Resueltos</span>
+            </div>
+
+            <div class="stat-card">
+                <strong id="level">1</strong>
+                <span>Nivel</span>
+            </div>
+
+        </section>
+
+        <!-- RETOS -->
+        <section id="retos" class="challenges">
+
+            <div class="section-title">
+
+                <span>DESAFÍOS</span>
+
+                <h2>Elige tu reto</h2>
+
+                <p>
+                    Selecciona una categoría y demuestra lo que puedes resolver.
+                </p>
+
+            </div>
+
+            <div class="category-grid">
+
+                <button
+                    class="category-card active"
+                    onclick="selectCategory('logica', this)"
+                >
+
+                    <div class="category-icon">
+                        🧩
+                    </div>
+
+                    <h3>Lógica</h3>
+
+                    <p>
+                        Problemas para razonar y encontrar soluciones.
+                    </p>
+
+                    <span>
+                        ▶ Jugar
+                    </span>
+
+                </button>
+
+                <button
+                    class="category-card"
+                    onclick="selectCategory('cultura', this)"
+                >
+
+                    <div class="category-icon">
+                        🌎
+                    </div>
+
+                    <h3>Cultura general</h3>
+
+                    <p>
+                        Comprueba cuánto sabes sobre el mundo.
+                    </p>
+
+                    <span>
+                        ▶ Jugar
+                    </span>
+
+                </button>
+
+                <button
+                    class="category-card"
+                    onclick="selectCategory('rapidez', this)"
+                >
+
+                    <div class="category-icon">
+                        ⚡
+                    </div>
+
+                    <h3>Rapidez</h3>
+
+                    <p>
+                        Piensa rápido y responde antes de que termine.
+                    </p>
+
+                    <span>
+                        ▶ Jugar
+                    </span>
+
+                </button>
+
+                <button
+                    class="category-card"
+                    onclick="selectCategory('memoria', this)"
+                >
+
+                    <div class="category-icon">
+                        🧠
+                    </div>
+
+                    <h3>Memoria</h3>
+
+                    <p>
+                        Entrena tu capacidad para recordar.
+                    </p>
+
+                    <span>
+                        ▶ Jugar
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- JUEGO -->
+        <section id="juego" class="game-section">
+
+            <div class="game-panel">
+
+                <div class="game-header">
+
+                    <div>
+
+                        <span id="gameCategory">
+                            🧩 LÓGICA
+                        </span>
+
+                        <h2 id="questionNumber">
+                            Desafío 1
+                        </h2>
+
+                    </div>
+
+                    <div class="timer">
+
+                        <span>
+                            ⏱️
+                        </span>
+
+                        <strong id="timer">
+                            30
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="progress-container">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+                <div class="question-box">
+
+                    <h3 id="question">
+                        ¿Qué número continúa la secuencia?
+                    </h3>
+
+                    <div id="answers" class="answers"></div>
+
+                </div>
+
+                <div class="game-footer">
+
+                    <span id="feedback"></span>
+
+                    <button
+                        id="nextBtn"
+                        class="next-btn"
+                        onclick="nextQuestion()"
+                        disabled
+                    >
+                        Siguiente →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PROGRESO -->
+        <section id="progreso" class="progress-section">
+
+            <div class="section-title">
+
+                <span>TU PROGRESO</span>
+
+                <h2>
+                    Mejora desafío tras desafío
+                </h2>
+
+            </div>
+
+            <div class="progress-card">
+
+                <div class="level-circle">
+
+                    <strong id="progressLevel">
+                        1
+                    </strong>
+
+                    <span>
+                        NIVEL
+                    </span>
+
+                </div>
+
+                <div class="progress-info">
+
+                    <h3>
+                        Experiencia mental
+                    </h3>
+
+                    <p>
+                        Sigue resolviendo desafíos para aumentar tu nivel.
+                    </p>
+
+                    <div class="xp-bar">
+
+                        <div id="xpBar"></div>
+
+                    </div>
+
+                    <span id="xpText">
+                        0 / 100 XP
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            🧠 MindQuest
+        </div>
+
+        <p>
+            Piensa. Resuelve. Supera el desafío.
+        </p>
+
+        <small>
+            MindQuest V1 © 2026
+        </small>
+
+    </footer>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon">
+                🧠
+            </div>
+
+            <h2>
+                ¿Cómo jugar?
+            </h2>
+
+            <p>
+                Elige una categoría, lee el desafío y selecciona tu respuesta.
+            </p>
+
+            <p>
+                Cada respuesta correcta te dará puntos y experiencia.
+            </p>
+
+            <p>
+                Mantén una racha de respuestas correctas para avanzar más rápido.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="closeModal()"
+            >
+                ¡Entendido!
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
